@@ -21,6 +21,7 @@ pip install -r requirements.txt`
 1. Repository with MySQL DB instead of in-memory storage.
 2. "safe route" wrapper for all routes to redact sensitive patient data.
 3. id of DB entries would be received from the DB as the unique row entry instead of the mock and updated in the repository instead of the model.
+4. handle errors and exceptions in the controller and route levels with proper HTTP status codes and messages.
 
 ## Testing Philosophy
 ### What I Tested
