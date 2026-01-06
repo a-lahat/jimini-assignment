@@ -1,16 +1,16 @@
 # HIPAA-Compliant Patient Encounter API
 ## Setup & Running
 - Dependencies installation
-pyenv local 3.11 
+`pyenv local 3.11
 python -m venv .venv
 source .venv/bin/activate
-pip install -r requirements.txt
+pip install -r requirements.txt`
 
 - How to run the application
-uvicorn server:app
+`uvicorn server:app`
 
 - How to run tests
-pytest tests/
+`pytest tests/`
 
 ## Design Decisions
 - Key architectural choices and why
@@ -19,7 +19,7 @@ pytest tests/
 - Trade-offs you considered
 - What you'd change for production
 1. Repository with MySQL DB instead of in-memory storage.
-2. 
+2. "safe route" wrapper for all routes to redact sensitive patient data
 
 ## Testing Philosophy
 ### What I Tested
