@@ -19,7 +19,8 @@ pip install -r requirements.txt`
 - Trade-offs you considered
 - What you'd change for production
 1. Repository with MySQL DB instead of in-memory storage.
-2. "safe route" wrapper for all routes to redact sensitive patient data
+2. "safe route" wrapper for all routes to redact sensitive patient data.
+3. id of DB entries would be received from the DB as the unique row entry instead of the mock and updated in the repository instead of the model.
 
 ## Testing Philosophy
 ### What I Tested
