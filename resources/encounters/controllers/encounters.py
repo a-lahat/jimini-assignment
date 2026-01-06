@@ -2,18 +2,21 @@ from resources.encounters.models.encounters import EncounterCreate
 from resources.encounters.models.encounters import Encounter
 from resources.encounters.repositories.encounters import EncounterRepository
 from resources.user.models.user import User
+from resources.audit.controllers.audit import audit_controller
 
 
 class EncounterController:
-    def create_encounter(self, data: EncounterCreate, user: User) -> Encounter:
+    @classmethod
+    def create_encounter(cls, data: EncounterCreate, user: User) -> Encounter:
         encounter = Encounter.create(data, user)
         EncounterRepository.create(encounter)
-        # TODO add audit
+        audit_controller.create(user, "create_encounter", str(encounter.id))
         return encounter
 
-    def get_encounter(self, encounter_id: int, user: User) -> Encounter:
+    @classmethod
+    def get_encounter(cls, encounter_id: int, user: User) -> Encounter:
         encounter = EncounterRepository.get_encounter_by_encounter_id(encounter_id)
-        # TODO add audit
+        audit_controller.create(user, "get_encounter", str(encounter.id))
         return encounter
 
 

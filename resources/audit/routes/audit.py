@@ -7,7 +7,7 @@ from resources.audit.controllers.audit import audit_controller
 from resources.auth.common import get_current_user
 from resources.user.models.user import User
 
-router = APIRouter(prefix="/encounters")
+router = APIRouter(prefix="/audit")
 
 
 @router.get("/audit/encounters", response_model=AuditEvents)

@@ -1,1 +1,1 @@
-PHI_FIELDS = {"patientId", "name", "ssn"}
+PHI_FIELDS = {"patient_id"}

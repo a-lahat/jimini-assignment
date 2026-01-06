@@ -32,11 +32,11 @@ class Encounter(BaseModel):
     def create(cls, encounter_create_data: EncounterCreate, user: User) -> 'Encounter':
         now = datetime.utcnow()
         return Encounter(
-            patientId=encounter_create_data.patient_id,
-            providerId=encounter_create_data.provider_id,
-            encounterDate=encounter_create_data.encounter_date,
-            encounterType=encounter_create_data.encounter_type,
-            clinicalData=encounter_create_data.data,
+            patient_id=encounter_create_data.patient_id,
+            provider_id=encounter_create_data.provider_id,
+            encounter_date=encounter_create_data.encounter_date,
+            encounter_type=encounter_create_data.encounter_type,
+            data=encounter_create_data.data,
             metadata={
                 "created_at": now,
                 "updated_at": now,
