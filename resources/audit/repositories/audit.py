@@ -14,4 +14,6 @@ class AuditRepository:
 
     @classmethod
     def create(cls, audit: AuditEvent):
+        if str(audit.user_id) not in cls._db:
+            cls._db[str(audit.user_id)] = [audit]
         cls._db[str(audit.user_id)].append(audit)

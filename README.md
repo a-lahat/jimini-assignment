@@ -25,9 +25,9 @@ pip install -r requirements.txt`
 ### What I Tested
 - [E2E schema validation test]: this tests the full flow of the app, ensures the schema validation occurs, and that PHIs are redacted.
 - [Internal business logic test]: 
-- [Data integrity test]:
+- [Data integrity test]: this tests that data entered into the system is the same data retrieved.
 ### What I'd Test With More Time (Prioritized)
-1. Data entered is data retrieved
+1. Data entered is data retrieved WITH redactions
 2. User only gets audits of their own records
 ### How I Made This Testable
 - Design decisions that enable testing

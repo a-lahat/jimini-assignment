@@ -32,6 +32,7 @@ class Encounter(BaseModel):
     def create(cls, encounter_create_data: EncounterCreate, user: User) -> 'Encounter':
         now = datetime.utcnow()
         return Encounter(
+            id=1,
             patient_id=encounter_create_data.patient_id,
             provider_id=encounter_create_data.provider_id,
             encounter_date=encounter_create_data.encounter_date,

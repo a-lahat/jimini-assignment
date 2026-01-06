@@ -10,13 +10,13 @@ class EncounterController:
     def create_encounter(cls, data: EncounterCreate, user: User) -> Encounter:
         encounter = Encounter.create(data, user)
         EncounterRepository.create(encounter)
-        audit_controller.create(user, "create_encounter", str(encounter.id))
+        audit_controller.create(user, "CREATE", str(encounter.id))
         return encounter
 
     @classmethod
     def get_encounter(cls, encounter_id: int, user: User) -> Encounter:
         encounter = EncounterRepository.get_encounter_by_encounter_id(encounter_id)
-        audit_controller.create(user, "get_encounter", str(encounter.id))
+        audit_controller.create(user, "READ", str(encounter.id))
         return encounter
 
 

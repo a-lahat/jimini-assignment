@@ -15,6 +15,7 @@ class AuditEvent(BaseModel):
     @staticmethod
     def create(user: User, action: str, resource_id: str):
         return AuditEvent(
+            id=1,
             user_id=user.id,
             action=action,
             resource_type="ENCOUNTER",  # TODO move to consts

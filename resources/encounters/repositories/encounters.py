@@ -5,8 +5,8 @@ class EncounterRepository:
     _db = {}
 
     @classmethod
-    def get_encounter_by_encounter_id(cls, encounter_id: int):
-        return cls._db.get(encounter_id)
+    def get_encounter_by_encounter_id(cls, encounter_id: int) -> Encounter:
+        return cls._db.get(str(encounter_id))
 
     @classmethod
     def create(cls, encounter: Encounter):
