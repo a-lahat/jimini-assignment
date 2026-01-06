@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 from datetime import datetime
-from typing import Literal
+from typing import Literal, ClassVar
 from resources.user.models.user import User
 
 
@@ -12,10 +12,13 @@ class AuditEvent(BaseModel):
     resource_id: int
     access_date: datetime
 
-    @staticmethod
-    def create(user: User, action: str, resource_id: str):
+    id_counter: ClassVar[int] = 0
+
+    @classmethod
+    def create(cls, user: User, action: str, resource_id: str):
+        cls.id_counter += 1
         return AuditEvent(
-            id=1,
+            id=cls.id_counter,
             user_id=user.id,
             action=action,
             resource_type="ENCOUNTER",  # TODO move to consts

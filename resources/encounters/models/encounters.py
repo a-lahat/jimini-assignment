@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 from datetime import datetime
-from typing import Dict, Any, Literal
+from typing import Dict, Any, Literal, ClassVar
 from resources.user.models.user import User
 
 
@@ -28,11 +28,14 @@ class Encounter(BaseModel):
     data: Dict[str, Any]
     metadata: Dict[str, Any]
 
+    id_counter: ClassVar[int] = 0
+
     @classmethod
     def create(cls, encounter_create_data: EncounterCreate, user: User) -> 'Encounter':
+        cls.id_counter += 1
         now = datetime.utcnow()
         return Encounter(
-            id=1,
+            id=cls.id_counter,
             patient_id=encounter_create_data.patient_id,
             provider_id=encounter_create_data.provider_id,
             encounter_date=encounter_create_data.encounter_date,
